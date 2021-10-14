@@ -1,0 +1,9 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+ErrorDocument 404 /404.php
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteCond %{HTTP_HOST} ^(([^.]+\.)[^.:]+)\.?(:[0-9]+)?$
+RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]
