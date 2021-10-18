@@ -203,6 +203,68 @@ if(company!='' && name!='' && phone!='')
 }
 
 
+function addCustomer(){
+	
+var company = $.trim($("#custParentCompany").val());
+var name = $.trim($("#custName").val());
+var address = $.trim($("#custAddress").val());
+var phone = $.trim($("#custPhone").val());
+var fax = $.trim($("#custFax").val());
+var email = $.trim($("#custEmail").val());
+var customer_company = $.trim($("#custCompany").val());
+var remarks = $.trim($("#custRemarks").val());
+
+if(company!='' && name!='' && phone!='')
+					{
+							var dataString = "act=create_customer&company="+company+"&name="+name+"&address="+address+"&phone="+phone+"&fax="+fax+"&email="+email+"&customer_company="+customer_company+"&remarks="+remarks;
+
+							$.ajax	
+										(
+												{
+														type: "POST",
+														url: "assets/ajax/proc.php",
+														data: dataString,
+														cache: false,
+														success: function(result)
+														{
+															var result = jQuery.parseJSON(result);
+															if(result['status']=="success"){
+																
+																	var redirect = window.location.href;
+																	window.location.href=redirect;
+															
+															}else{
+																$("#supplier_create_msgbox").html("<div class='col-md-12'><div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'aria-hidden='true'>×</button><strong>Error : </strong>"+result['message']+"</div></div>");
+															}
+															
+														}
+												}
+										);
+					}else{
+					
+						$("#supplier_create_msgbox").html("<div class='col-md-12'><div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'aria-hidden='true'>×</button><strong>Error :</strong> Fields with * required</div></div>");
+					
+					}
+								
+}
+
+
+// function getCustomerDDL()
+// {
+	// $.ajax	
+		// (
+			// {
+				// type: "POST",
+				// url: "assets/ajax/proc.php?act=getCustomerDDL",
+				// cache: false,
+				// success: function(result)
+				// {
+					// $("#customer").html(result);
+				// }
+			// }
+		// );
+// }
+
 function create_unit(){
 	
 var company = $.trim($("#company").val());

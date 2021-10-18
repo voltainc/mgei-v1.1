@@ -132,6 +132,28 @@ if(isset($_REQUEST['act'])){
 					}
 					break;
 					
+					case "getCustomerDDL":
+					
+						$q = mysql_query("select * from customer where status <> false order by id DESC");
+						if(mysql_num_rows($q)){
+							
+							$ddl="";
+							
+							while($result = mysql_fetch_assoc($q)){
+								
+								$ddl.="<option value='{$result['id']}'>".ucwords($result['name'])."</option>";
+								
+							}
+							
+							echo $ddl;
+							
+						}else{
+							echo "<option>Add Customer</option>";
+						}
+					
+					
+					break;
+					
 					case "create_unit":
 					
 					$company = trim(@$_REQUEST['company']);

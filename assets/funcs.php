@@ -3031,7 +3031,7 @@ class member{
 									
 										?>
 										
-											<select id="supplier" class="form-control" disabled>
+											<select id="customer" class="form-control" disabled>
 												
 													<option>Empty</option>
 												
@@ -3046,7 +3046,7 @@ class member{
 						
 						case "customer_all":
 							
-								$q = mysql_query("SELECT * FROM `customer` where status=true ORDER BY IF(name RLIKE '^[a-z]', 'A','Z'), name ");
+								$q = mysql_query("SELECT * FROM `customer` where status<>false ORDER BY ID DESC");
 								if(mysql_num_rows($q)){
 									
 									?>
@@ -3072,7 +3072,7 @@ class member{
 									
 										?>
 										
-											<select id="supplier" class="form-control" disabled>
+											<select id="customer" class="form-control" disabled>
 												
 													<option>Empty</option>
 												

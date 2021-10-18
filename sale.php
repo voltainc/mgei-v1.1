@@ -131,7 +131,9 @@ $static = new static_content;
                                     <h3 class="panel-title">Customer</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <?php $member->retrieve(['act'=>'customer']);?>
+                                    <?php $member->retrieve(['act'=>'customer_all']);?>
+									<button class="btn btn-primary" style="width:100%" data-toggle='modal' data-target="#add_customer">New Customer</button>
+									
 								<hr />
 								
 								<div class="form-group">
@@ -281,7 +283,62 @@ $static = new static_content;
             </div>
         </div>
     </div>
-	
+<div class="modal fade" id="add_customer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header label-primary white">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" >Add Customer</h4>
+                </div>
+                <div class="modal-body">
+                    <div class='row'>
+									<span id="supplier_create_msgbox"></span>
+											
+										<div class='col-md-12'>
+											
+													<div class="form-group">
+														<label>Name*</label>
+														<input id="custName" class="form-control" placeholder="Enter Name"/>
+													</div>
+													<div class="form-group">
+														<label>Phone*</label>
+														<input type='custNum' id="custPhone" class="form-control" placeholder="Enter Phone"/>
+													</div>
+													<div class="form-group">
+														<label>Address</label>
+														<input id="custAddress" class="form-control" placeholder="Enter Address"/>
+													</div>
+													<div class="form-group">
+														<label>FAX</label>
+														<input type='custFax' id="fax" class="form-control" placeholder="Enter Fax"/>
+													</div>
+													<div class="form-group">
+														<label>Email</label>
+														<input type='email' id="custEmail" class="form-control" placeholder="Enter Email"/>
+													</div>
+													<div class="form-group">
+														<label>Company</label>
+														<input id="custCompany" class="form-control" placeholder="Enter Company"/>
+													</div>
+													<div class="form-group">
+														<label>Remarks</label>
+														<textarea id="custRemarks" class="form-control" placeholder="Enter Remarks"></textarea>
+													</div>
+													<div class="form-group">
+														<label>Action</label>
+														<input type='hidden' id="custParentCompany" value="<?php if(isset($val_company)){echo $val_company['id'];}else{echo $arr[0]['id'];}?>"/>
+														<button onclick="addCustomer()" class="btn btn-primary full-width">Create Customer</button>
+													</div>
+										</div>
+					
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>	
 <?php echo $static->jslib("inner"); ?>
 
 <script>
