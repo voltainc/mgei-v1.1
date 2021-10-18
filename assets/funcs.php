@@ -69,16 +69,17 @@ class main{
 	function connect_db(){
 		
 		#live
+		// $host = "localhost";
+		// $user = "majanghm_invent";
+		// $db = "majanghm_inventory";
+		// $pass = "wiperdex123";
+		
+		#local
 		$host = "localhost";
 		$user = "root";
 		$db = "mgei-v1.1";
 		$pass = "";
 		
-		#local
-		// $host = "localhost";
-		// $user = "root";
-		// $db = "mgei";
-		// $pass = "";
 		
 		mysql_connect($host,$user,$pass);
 		
