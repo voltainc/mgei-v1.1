@@ -42,7 +42,7 @@ $invdtls = $member->retrieve(['act'=>'sale_invoice_details','inv'=>trim($_REQUES
 	<colgroup width="75"></colgroup>
 	<colgroup width="104"></colgroup>
 	<tbody><tr>
-		<td colspan="3" height="56" align="left" valign="middle"><font face="Arial" size="5" color="#2C3B65"><strong>MAJAN GLOBAL ENERPRISES
+		<td colspan="3" height="56" align="left" valign="middle"><font face="Arial" size="5" color="#2C3B65"><strong>MAJAN GLOBAL ENTERPRISES
 		</strong></font></td>
 		<td align="left" valign="bottom"><br></td>
 		<td colspan="2" align="right" valign="bottom"><b><font face="Arial" size="5" color="#7B8EC5">INVOICE</font></b><br /><?php echo strtoupper($invdtls['order']);?></td>
