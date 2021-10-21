@@ -77,8 +77,8 @@ $invdtls = $member->retrieve(['act'=>'sale_invoice_details','inv'=>trim($_REQUES
 		<td align="left" valign="bottom"><br></td>
 		<td align="left" valign="bottom"><br></td>
 		<td align="left" valign="bottom"><br></td>
-		<td align="right" valign="bottom">DUE DATE</td>
-		<td style="border-top: 1px solid #a6a6a6; border-bottom: 1px solid #a6a6a6; border-left: 1px solid #a6a6a6; border-right: 1px solid #a6a6a6" align="center" valign="bottom" bgcolor="#D3D9EC" sdval="43551" sdnum="1033;1033;M/D/YYYY">3/27/2019</td>
+		<!--<td align="right" valign="bottom">DUE DATE</td>-->
+		<!--<td style="border-top: 1px solid #a6a6a6; border-bottom: 1px solid #a6a6a6; border-left: 1px solid #a6a6a6; border-right: 1px solid #a6a6a6" align="center" valign="bottom" bgcolor="#D3D9EC" sdval="43551" sdnum="1033;1033;M/D/YYYY">3/27/2019</td>-->
 		
 	</tr>
 	
