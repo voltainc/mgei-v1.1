@@ -264,7 +264,7 @@ $tax = $member->calcTax($invdtls['total']);
 <?php
 		
 		$f = new NumberFormatter("en", NumberFormatter::SPELLOUT);
-		echo "Amount in  words: " . ucwords($f->format($invdtls['total'])) . " Rial Omani";
+		echo "Amount in  words: " . ucwords($f->format($invdtls['total'] + $tax)) . " Rial Omani";
 ?>
 
 	<!--<p align="left" valign="bottom">
