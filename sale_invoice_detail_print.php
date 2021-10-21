@@ -10,6 +10,7 @@ $obj->connect_db();
 $member = new member();
 $static = new static_content;
 $invdtls = $member->retrieve(['act'=>'sale_invoice_details','inv'=>trim($_REQUEST['inv']),'type'=>trim(@$_REQUEST['type'])]);
+$tax = $member->calcTax($invdtls['total']);
 
 
 
@@ -249,13 +250,13 @@ $invdtls = $member->retrieve(['act'=>'sale_invoice_details','inv'=>trim($_REQUES
 		<td style="border-top: 1px solid #000000" align="left" valign="bottom"><br></td>
 		<td style="border-top: 1px solid #000000" align="left" valign="bottom"><font size="1" color="#FFFFFF">[42]</font></td>
 		<td style="border-top: 1px solid #000000" align="left" valign="bottom">Tax (5%)</td>
-		<td style="border-top: 1px solid #000000" align="right" valign="bottom" sdval="950" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"><?php echo $member->calcTax($invdtls['total']);?></td>
+		<td style="border-top: 1px solid #000000" align="right" valign="bottom" sdval="950" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"><?php echo $tax;?></td>
 	</tr>
 	<tr>
 		<td  colspan="3" height="23" align="left" valign="top"><br></td>
 		<td align="left" valign="bottom"><br></td>
 		<td align="left" valign="bottom"><b>TOTAL</b></td>
-		<td align="right" valign="bottom" bgcolor="#D3D9EC" sdval="971.56" sdnum="1033;0;_(&quot;$&quot;* #,##0.00_);_(&quot;$&quot;* \(#,##0.00\);_(&quot;$&quot;* &quot;-&quot;??_);_(@_)"><b><?php echo $invdtls['total']?></b></td>
+		<td align="right" valign="bottom" bgcolor="#D3D9EC" sdval="971.56" sdnum="1033;0;_(&quot;$&quot;* #,##0.00_);_(&quot;$&quot;* \(#,##0.00\);_(&quot;$&quot;* &quot;-&quot;??_);_(@_)"><b><?php echo ($invdtls['total'] + $tax)?></b></td>
 	</tr>
 	
 	</tbody></table>
