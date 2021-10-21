@@ -2650,6 +2650,9 @@ class member{
 		
 		}
 		
+		function calcTax($amt){
+			return ($amt*5)/100;
+		}
 		
 		function val_emp_overtime($company,$employee,$year,$month,$day){
 			
