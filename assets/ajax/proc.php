@@ -3530,6 +3530,8 @@ if(isset($_REQUEST['act'])){
 											<tr>
 												<th><strong>SKU</strong></th>
 												<th><strong>Name</strong></th>
+												<th><strong>Unit</strong></th>
+												<th><strong>Quantity</strong></th>
 												<th><strong>Sale</strong></th>
 												<th><strong>Return</strong></th>
 											</tr>
@@ -3540,14 +3542,12 @@ if(isset($_REQUEST['act'])){
 												while($result = mysql_fetch_assoc($q)){
 													$sale_return = $member->retrieve(['act'=>'calc_sale_return','item'=>$result['id'],"from"=>$from,"to"=>$to]);
 													
-													// echo "<pre>";
-													// print_r($sale_return);
-													// echo "</pre>";
-													// exit();
 													?>
 														<tr>
 															<td><?php echo $result['id'];?></td>
 															<td><?php echo $result['name']; ?></td>
+															<td><?php echo $result['quantity']; ?></td>
+															<td><?php echo strtoupper($member->ret_by("unit","id",$result['unit'],"name")); ?></td>
 															<td><?php echo $sale_return['sale']; ?></td>
 															<td><?php echo $sale_return['return']; ?></td>
 															

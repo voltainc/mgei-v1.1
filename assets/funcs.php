@@ -3720,7 +3720,7 @@ class member{
 									"invoice_detail"=>$invoice_detail,
 									"order"=>($sale_inv_order['status']!=null ? $sale_inv_order['status'] : NULL),
 									"remarks"=>($sale_inv_order['remarks']!=null ? $sale_inv_order['remarks'] : NULL),
-									"customer_detail"=>$customer_detail,
+									"customer_detail"=>@$customer_detail,
 									"sale_item"=>$sale_item,
 									"sale_paid"=>$sale_paid,
 									"net"=>$net,
